@@ -24,7 +24,7 @@ select Boot Arch linux(x86_64)
 
 ![](/images/1-2.png) 
 <br><br>
-# Installation
+## Installation
 At first there will be a similar content in screen as shown below <br><br>
 ![](/images/img2.jpg)<br><br>
 Now we need to partition the drive , where ArchLinux need to be installed <br>
@@ -32,5 +32,12 @@ Use this command to list all the disk and partitions on your system <br>
 ```bash
 lsblk
 ```
-The image below is output while using ```lsblk``` <br><br>
+The image below is output while using ```lsblk``` command <br><br>
 ![](/images/img3.jpg) 
+### Partitioning
+Use this command to format and partition the drive
+``` 
+cfdisk \dev\drv
+```
+here instead of `drv` give your drive's name
+
