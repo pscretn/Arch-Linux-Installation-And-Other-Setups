@@ -21,5 +21,6 @@ Here you can use flash drive to different memory size , It should be minimum 2GB
 Now after making a bootable drive , we need to access the boot menu and boot from usb drive , Now ArchLinux menu will visible in that 
 select Boot Arch linux(x86_64)
 (Note: Accesing boot menu for a specfic pc can be found from web or user's manual)
-
-![](/images/1-2.png) <br><br>
+<br>
+![](/images/1-2.png) 
+<br><br>
