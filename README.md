@@ -2,9 +2,10 @@
 <br><br>
 ![](/images/archlinux.png) <br><br>
 So Here in this tutorial, I am going to explain , How I Dual-Booted ArchLinux With Windows-10 
-on my PC
+on my PC with efi partition
 <br><br>
 ## Download ArchLinux iso
-First of all we need to Download iso file of ArchLinux
+First of all we need to Download iso file of ArchLinux From the link below
 <br>
-#### Download Link:https://archlinux.org/download/
+#### Download Link : https://archlinux.org/download/
+<br>
