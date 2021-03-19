@@ -50,7 +50,25 @@ Use this command to Format partition to ext4 (use your drive name instead of 'dr
 ```
 mkfs.ext4 /dev/drv
 ```
-Use this command to Mount partition (use your drive name instead of 'drv')
+Use this command to Mount root partition (use your drive name instead of 'drv')
 ```
 mount /dev/drv /mnt
+```
+### Create swap partition
+Use this command to Format swap partition (use your drive name instead of 'drv')
+```
+mkswap /dev/drv
+```
+Use this command to turn on swap partition (use your drive name instead of 'drv')
+```
+swapon /dev/drv
+```
+### Create boot partition
+Use this command to make directory for boot partition (use your drive name instead of 'drv')
+```
+mkdir /mnt/boot
+```
+Use this command to Mount boot partition (use your drive name instead of 'drv')
+```
+mount /dev/drv /mnt/boot
 ```
