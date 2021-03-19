@@ -43,4 +43,5 @@ here instead of `drv` give your drive's name
 * Create a boot partition with `Type : EFI System`
 * Create a root partition with `Type : Linux filesystem`
 * Create a boot partition with `Type : Linux swap`
-
+* write the change using `[Write]` by navigating using left and right arrow  and type "yes" to make changes
+* now use `[Quit]` to exit writing changes to partition 
