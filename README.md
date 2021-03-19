@@ -26,5 +26,6 @@ select Boot Arch linux(x86_64)
 <br><br>
 # Installation
 First we need to partition the drive , where ArchLinux need to be installed <br>
-Use this command to list all the disk and partitions on your system
-``lsblk``
+Use this command to list all the disk and partitions on your system <br>
+```bash
+lsblk``
