@@ -13,7 +13,7 @@ First of all we need to Download iso file of ArchLinux From the link below
 
 ![](/images/img1.png)<br><br>
 Inorder to make bootable drive of ArchLinux , I have used rufus 
-Here you can use flash drive to different memory size , It should be minimum 2GB of size
+Here you can use flash drive of different memory size , It should be minimum of size 2GB
 * here we need to select ArchLinux iso file from the where the iso had been downloaded
 * In Partition Scheme  I am using GPT Partition , you can select MBR or GPT Partition
 * Click on start
