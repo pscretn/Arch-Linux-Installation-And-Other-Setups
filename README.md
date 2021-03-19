@@ -40,4 +40,5 @@ Use this command to format and partition the drive
 cfdisk \dev\drv
 ```
 here instead of `drv` give your drive's name
+* Create a boot partition with `Type`:`EFI System`
 
