@@ -44,8 +44,7 @@ here instead of `drv` give your drive's name
 * Create a root partition with `Type : Linux filesystem`
 * Create a boot partition with `Type : Linux swap`
 * write the change using `[Write]` by navigating using left and right arrow  and type "yes" to make changes
-* now use `[Quit]` to exit writing changes to partition 
-<br>
+* now use `[Quit]` to exit writing changes to partition <br><br>
 ### Create root partition
 Use this command to Format partition to ext4 (use your drive name instead of 'drv')
 ```
