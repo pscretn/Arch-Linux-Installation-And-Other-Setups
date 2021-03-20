@@ -184,5 +184,11 @@ Add matching entries to hosts
 ::1		localhost
 127.0.1.1	myhostname.localdomain	myhostname
 ```
-If the system has a permanent IP address, it should be used instead of 127.0.1.1
+Change `myhostname` to your hostname <br>
+If the system has a permanent IP address, it should be used instead of 127.0.1.1 <br>
 Complete the network configuration for the newly installed environment, that may include installing suitable network management software.
+### Root password
+Set the root password
+```
+# passwd
+```
