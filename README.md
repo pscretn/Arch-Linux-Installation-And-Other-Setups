@@ -192,3 +192,22 @@ Set the root password
 ```
 # passwd
 ```
+### Install Other Pacakges
+* Use command given below to install bootloader and other packages 
+```
+# pacman -S grub efibootmgr networkmanager network-manager-applet dialog  wireless_tools wpa_supplicant os-prober mtools 
+dosfstools base-devel linux-headers ntfs-3g gvfs
+```
+* To install `grub` use command 
+```
+# grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+```
+* To generate grub configuration , Use the command
+```
+# grub-mkconfig -o /boot/grub/grub.cfg
+```
+* we need to enable network manager inorder to start at reboot , Use command
+```
+# systemctl enable NetworkManager
+```
+
