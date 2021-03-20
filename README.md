@@ -17,6 +17,7 @@ Here you can use flash drive of different memory size , It should be minimum of 
 * here we need to select ArchLinux iso file from the where the iso had been downloaded
 * In Partition Scheme  I am using GPT Partition , you can select MBR or GPT Partition
 * Click on start
+### Download Link for Rufus : https://rufus.ie/
 <br>
 Now after making a bootable drive , we need to access the boot menu and boot from usb drive , Now ArchLinux menu will visible in that 
 select Boot Arch linux(x86_64)
