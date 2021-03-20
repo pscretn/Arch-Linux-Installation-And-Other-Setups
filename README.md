@@ -210,4 +210,13 @@ dosfstools base-devel linux-headers ntfs-3g gvfs
 ```
 # systemctl enable NetworkManager
 ```
+Now to exit from chroot , Use command
+```
+# quit
+```
+Now we exited the chroot , in next step we need to reboot the machine , Use command
+```
+# reboot
+```
+After following all these steps you have successfully installed ArchLinux , If the grub is showing up  with option to select Archlinux and other operating systems at startup 
 
