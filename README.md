@@ -72,3 +72,21 @@ Use this command to Mount boot partition (use your drive name instead of 'drv')
 ```
 mount /dev/drv /mnt/boot
 ```
+## Setting up Network Configuration <br><br>
+### Using Local Network or USB Tethering
+Use the command below to scan for available network 
+```
+ifconfig
+```
+Now look for availble network from the the list as show below in the image <br><br>
+![](/images/img4.jpg) <br><br>
+Now to setup network use the command , instead of `enp....` give your network name
+```
+ip link set enp...... up
+```
+we can conform that we are connected to network by using command 
+```
+ping google.com
+```
+You can use any website to ping instead of `google.com` <br><br>
+![](/images/img5.jpg) <br><br>
