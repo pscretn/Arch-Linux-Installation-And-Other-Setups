@@ -30,14 +30,14 @@ At first there will be a similar content in screen as shown below <br><br>
 Now we need to partition the drive , where ArchLinux need to be installed <br>
 Use this command to list all the disk and partitions on your system <br>
 ```bash
-lsblk
+# lsblk
 ```
 The image below is output while using ```lsblk``` command <br><br>
 ![](/images/img3.jpg) 
 ### Partitioning
 Use this command to format and partition the drive
 ``` 
-cfdisk \dev\drv
+# cfdisk \dev\drv
 ```
 here instead of `drv` give your drive's name
 * Create a boot partition with `Type : EFI System`
@@ -48,45 +48,45 @@ here instead of `drv` give your drive's name
 ### Create root partition
 Use this command to Format partition to ext4 (use your drive name instead of 'drv')
 ```
-mkfs.ext4 /dev/drv
+# mkfs.ext4 /dev/drv
 ```
 Use this command to Mount root partition (use your drive name instead of 'drv')
 ```
-mount /dev/drv /mnt
+# mount /dev/drv /mnt
 ```
 ### Create swap partition
 Use this command to Format swap partition (use your drive name instead of 'drv')
 ```
-mkswap /dev/drv
+# mkswap /dev/drv
 ```
 Use this command to turn on swap partition (use your drive name instead of 'drv')
 ```
-swapon /dev/drv
+# swapon /dev/drv
 ```
 ### Create boot partition
 Use this command to make directory for boot partition (use your drive name instead of 'drv')
 ```
-mkdir /mnt/boot
+# mkdir /mnt/boot
 ```
 Use this command to Mount boot partition (use your drive name instead of 'drv')
 ```
-mount /dev/drv /mnt/boot
+# mount /dev/drv /mnt/boot
 ```
-## Setting up Network Configuration <br><br>
+## Connect to Internet <br><br>
 ### Using Local Network or USB Tethering
 Use the command below to scan for available network 
 ```
-ifconfig
+# ifconfig
 ```
 Now look for availble network from the the list as show below in the image <br><br>
 ![](/images/img4.jpg) <br><br>
 Now to setup network use the command , instead of `enp....` give your network name
 ```
-ip link set enp...... up
+# ip link set enp...... up
 ```
 we can conform that we are connected to network by using command 
 ```
-ping google.com
+# ping google.com
 ```
 You can use any website to ping instead of `google.com` <br><br>
 ![](/images/img5.jpg) <br><br>
@@ -97,18 +97,93 @@ It’s because the mirrorlist (located in /etc/pacman.d/mirrorlist) has a huge n
 
  First sync the pacman repository using command
  ```
- pacman -Syy
+ # pacman -Syy
  ```
  Now, install reflector too that you can use to list the fresh and fast mirrors located in your country
  ```
- pacman -S reflector
+ # pacman -S reflector
  ```
  Make a backup of mirror list (just in case)
  ```
- cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+ # cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
  ```
  Now, get the good mirror list with reflector and save it to mirrorlist. You can change the country from India to your own country
  ```
- reflector -c "India" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
+ # reflector -c "India" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
  ```
+ ### Base Install
+ Use the command to install base packages for ArchLinux
+ ```
+ # pacstrap /mnt base linux linux-firmware nano vim
+ ```
+ ### Fstab
+ Use the command to setup fstab
+ ```
+ # genfstab -U /mnt >> /mnt/etc/fstab
+ ```
+ Check the resulting /mnt/etc/fstab file, and edit it in case of errors , Use the command
+ ```
+ # nano /mnt/etc/fstab
+ ```
+ ### Chroot
+ Change root into the new system:
+ ```
+ # arch-chroot /mnt
+ ```
+ ### Time zone
+Set the time zone:
+```
+# ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+ ```
+ Here change Region and City according to your region and city <br>
  
+ Run hwclock to generate `/etc/adjtime`:
+ ```
+# hwclock --systohc
+```
+This command assumes the hardware clock is set to UTC
+### Localization
+Edit `/etc/locale.gen` and uncomment `en_US.UTF-8 UTF-8` and other needed locales , Use command <br> 
+```
+# nano /etc/locale.gen
+```
+In nano 
+* Use `ctrl` + `c` to write
+* Use `ctrl` + `x` to quit <br>
+Generate the locales by running
+```
+# locale-gen
+```
+Create the locale.conf file, and set the LANG variable accordingly , Use command
+```
+# nano /etc/locale.conf
+```
+Now add the line given below
+```
+LANG=en_US.UTF-8
+```
+### Network configuration
+Create the hostname file , Use command
+```
+# nano /etc/hostname
+```
+In nano 
+* Use `ctrl` + `c` to write
+* Use `ctrl` + `x` to quit <br>
+Add you hostname instead of `myhostname`
+```
+myhostname
+```
+Edit hosts file by using command
+```
+# nano /etc/hosts
+```
+Add matching entries to hosts 
+```
+127.0.0.1 localhost
+::1		localhost
+127.0.1.1	myhostname.localdomain	myhostname
+```
+If the system has a permanent IP address, it should be used instead of 127.0.1.1.
+
+Complete the network configuration for the newly installed environment, that may include installing suitable network management software.
