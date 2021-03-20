@@ -90,3 +90,25 @@ ping google.com
 ```
 You can use any website to ping instead of `google.com` <br><br>
 ![](/images/img5.jpg) <br><br>
+### Select an appropriate mirror
+This is a big problem with installing Arch Linux. If you just go on installing it, you might find that the downloads are way too slow. In some cases, it’s so slow that the download fails.
+
+It’s because the mirrorlist (located in /etc/pacman.d/mirrorlist) has a huge number of mirrors but not in a good order. The top mirror is chosen automatically and it may not always be a good choice.<br>
+
+ First sync the pacman repository using command
+ `
+ pacman -Syy
+ `
+ Now, install reflector too that you can use to list the fresh and fast mirrors located in your country
+ `
+ pacman -S reflector
+ `
+ Make a backup of mirror list (just in case)
+ `
+ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+ `
+ Now, get the good mirror list with reflector and save it to mirrorlist. You can change the country from India to your own country
+ `
+ reflector -c "India" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
+ `
+ 
