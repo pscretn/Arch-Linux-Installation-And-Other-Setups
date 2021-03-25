@@ -213,7 +213,7 @@ dosfstools base-devel linux-headers ntfs-3g gvfs
 ```
 Now to exit from chroot , Use command
 ```
-# quit
+# exit
 ```
 Now we exited the chroot , in next step we need to reboot the machine , Use command
 ```
